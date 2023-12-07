@@ -1,0 +1,10 @@
+.home-page{
+    padding: 20px;
+}
+
+.product-list{
+    
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to the next row when they don't fit */
+    justify-content: space-between;
+}

@@ -1,57 +1,55 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./Login.css"
-import { auth } from './firebase';
+import { auth, db } from './firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 
 function Login() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     const [email, setEmail] = useState('');
     const [password,setPassword] = useState('');
 
-    const signIn = e => {
+    const signIn = async (e) => {
         e.preventDefault();
-        auth
-        .signInWithEmailAndPassword(email,password)
-        .then((auth) => {
-            if(auth){
-                navigate('/');
+    
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            navigate('/');
+        } catch (error) {
+            // Handle specific authentication errors
+            if (error.code === 'auth/invalid-login-credentials') {
+                alert('Invalid email or password. Please check your credentials and try again.');
+            } else {
+                // Handle other errors
+                console.error('Authentication Error:', error.message);
+                alert('Sign-in failed. Please try again.');
             }
-        })
-        .catch(error => alert(error.message));
-    }
-    const register = e => {
-        e.preventDefault();
-
-        auth
-        .createUserWithEmailAndPassword(email,password)
-        .then((auth) => {
-            // it succesfully created a new user with email and password
-            if(auth){
-                navigate('/');
-            }
-        })
-        .catch(error => alert(error.message))
-
-    }
-
+        }
+    };
+    
   return (
     <div className="login">
         <Link to="/login" style={{textDecoration: 'none', color: 'white'}}>
-        <div className='logo'>amazon</div>
+        
         </Link>
         <div className='login_container'>
             <h1>Sign-in</h1>
             <form>
                 <h5>E-mail</h5>
-                <input type='text' value={email} onChange={e => setEmail(e.target.value)}/>
+                <input type='text' onChange={e => setEmail(e.target.value)}/>
                 <h5>Password</h5>
-                <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
+                <input type='password'  onChange={e => setPassword(e.target.value)}/>
                 <button type='submit' onClick={signIn} className='sign_in_button' >Sign In</button>
             </form>
             <p>
-                By singing-in you agree to the AMAZON FAKE CLONE Conditions of Use & Sale. Please see our Privacy Notice, our cookies notice and our internet based Ads notices.
+                By singing-in you agree to the FitTo Conditions of Use & Sale. Please see our Privacy Notice, our cookies notice and our internet based Ads notices.
             </p>
-            <button onClick={register} className='register_button'>Create your amazon account</button>
+            <Link to="/register" style={{textDecoration:'none', color:'white'}}>
+            <center><button className='register_button'>Create your FitTo account</button></center>
+            
+            </Link>
+            
         </div>
     </div>
   )

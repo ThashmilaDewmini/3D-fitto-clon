@@ -17,12 +17,16 @@
     margin-right: 5px;
 }
 .subtotal >button{
-    background: #f0c14b;
+    background: white;
     border-radius: 2px;
     width: 100%;
     height: 30px;
     border: 1px solid;
     margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
+    border-color:black;
     color: #111;
+    &:hover{
+        background-color: black;
+        color: white;
+    }
 }

@@ -1,0 +1,128 @@
+.navbar {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 10px 30px;
+    
+  }
+  .navbar-logo{
+    font-size: 34px;
+    font-weight: bolder;
+  }
+  .navbar-logo a {
+    
+    text-decoration: none;
+    color: black;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .navbar-menu li a {
+    text-decoration: none;
+    font-weight: 400;
+    color: black;
+    &:hover{
+        color: #2a2b2c;
+    }
+  }
+  .navbar-search {
+    display: flex;
+    max-height: 30px;
+    align-items: center;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 5px;
+  }
+  
+  .navbar-search input[type="text"] {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  .navbar-search button {
+    background-color: black;
+  color: white;
+  border: none;
+  max-height: 25px;
+  max-width: 20px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  }
+  .search-button {
+    display: flex;  
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+ 
+  
+  .navbar-search button:hover {
+    background-color: #2a2b2c;
+  }
+  .navbar-auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-auth a {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+  }
+  .basket_count{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+@media screen and (max-width: 945px) {
+  .navbar-logo{
+    font-size: 24px;
+  }
+  .navbar-menu li{
+    font-size: 14px;
+    font-weight: 100;
+  }
+  .navbar-search{
+    max-height: 20px;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 2px 2px;
+  }
+  .navbar-search input[type="text"] {
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+  .search-button{
+    display: none;
+  }
+  .navbar-auth{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 755px){
+  .navbar-search{
+    display: none;
+  }
+}

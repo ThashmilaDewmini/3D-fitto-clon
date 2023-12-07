@@ -1,4 +1,4 @@
-.checkout{
+.checkout-e{
     display: flex;
     padding: 20px;
     background-color: white;
@@ -12,6 +12,6 @@
     padding: 10px;
     border-bottom: 1px solid lightgray;
 }
-.right{
+.right-subtotal{
     flex: 1;   
 }

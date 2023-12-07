@@ -1,0 +1,14 @@
+.view-products{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.view-product-container{
+    max-width: 200px;
+    max-height: 150px;
+    background: gray;
+}
+.view-product-img image{
+    width: 20%;
+    height: 100px;
+}
